@@ -4,7 +4,7 @@
 
 ### What is your project?
 
-Home budgeting process is complicated, yet an important aspect of wellbeing and success. The aim of "Home Budget Friend" is to easy the home budgeting pain and make of it an enjoiable experience. 
+Home budgeting process is complicated, yet an important aspect of wellbeing and success. The aim of "Home Budget Friend" is to easy the home budgeting pain and make of it an enjoyable experience. 
 
 ### Wireframes!
 
