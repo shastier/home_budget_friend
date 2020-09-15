@@ -22,7 +22,7 @@ Create a full stack application with all CRUD features using React as Frontend f
 
 ### Why Spring Boot as backend technology
 - Because it uses Java as main programming language to build app with minimal or zero config.
-- Good to build REST APIs and can be used for small problems but its strength is: larger scale app that use a clout approach.
+- Good to build REST APIs and can be used for small problems but its strength is: larger scale app that use a cloud approach.
 
 ### Phases of Completion
 - Research and learn how to use Spring Boot
