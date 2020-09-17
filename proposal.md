@@ -6,11 +6,15 @@
 
 Home budgeting process is complicated, yet an important aspect of wellbeing and success. The aim of "Home Budget Friend" is to easy the home budgeting pain and make of it an enjoyable experience. 
 
-### Wireframes!
+### Wireframes
 
 Please click the link below to see wireframes and user stories.
 
 [Wireframes and User Stories](./Wireframes.md).
+
+### Schema Diagram
+
+![schema-diagram](./assets/schema_diagram.jpg)
 
 ### Initial thoughts on app structure
 
