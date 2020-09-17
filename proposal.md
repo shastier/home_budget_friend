@@ -41,7 +41,7 @@ Create a full stack application with all CRUD features using React as Frontend f
 - Setting up server.
 - Check that server is connected to database and running properly.
 - Deploy initial project on Heroku.
-- Start working on implementation as listed on project board to do tasks(same as user stories per below) and detailed on wireframes.
+- Start working on implementation as listed on project board to do tasks(same as user stories detailed on wireframes).
 - Complete minimum viable product(MVP).
 - Start working on nice to have features.
 - Complete Readme.md file.
