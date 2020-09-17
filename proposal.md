@@ -1,4 +1,4 @@
-# Shirley Hastier / September 15, 2020 
+# Shirley Hastier / September 17, 2020 
 
 ## Home Budget Friend App Proposal
 
@@ -18,32 +18,33 @@ Please click the link below to see wireframes and user stories.
 
 ### Initial thoughts on app structure
 
-Create a full stack application with all CRUD features using React as Frontend framework and Spring Boot as the backend REST API. 
-- Languages: JavaScript (Frontend) and Java (Backend)
-- Use Spring Boot JPA for managing relational data to access and persit data between Java object/class & relational database with JPQL(Java Persistent Query Language)
-- Will inclue: user Authentication
-- Relational Database
+Create a full stack application with all CRUD features using React as Frontend framework and Ruby on Rails as the backend REST API. 
+- Languages: JavaScript (Frontend) and Ruby (Backend)
+- Will inclue: user Authentication as a bonus functionality.
+- Implement different queries to the database for easy data representation to the user such as filter by category and order by cost (ascending or descending).
 
-### Why Spring Boot as backend technology
-- Because it uses Java as main programming language to build app with minimal or zero config.
-- Good to build REST APIs and can be used for small problems but its strength is: larger scale app that use a cloud approach.
+### Why Ruby on Rails as a Backend Technology?
+- Because it follows MVC(Model, View, Controller) and RESTful desig.
+- It is quick and easy to build with minimal or zero config, thanks to all the built in generators.
+- Take advantage of using Active Record as an ORM Framework and all its benefis such as perform database operations in an object-oriented approach and validate models before they get persisted to the database.
+- It is used by high profile sites, including: GitHub and Airbnb.
 
 ### Phases of Completion
-- Research and learn how to use Spring Boot
+- Research and learn how to use Ruby on Rails.
 - Wireframes and User Stories
-- Create Git reppo
-- Create and add tasks to project board on GitHub/Projects/Basic Kanban
-- Project Proposal
 - Database design. Schema diagram.
+- Create Git reppo.
+- Create and add tasks to project board on GitHub/Projects/Basic Kanban.
+- Project Proposal.
 - Draft list of exposed http routes.
-- Create full project directory
-- Setting up server
+- Create full project directory.
+- Setting up server.
 - Check that server is connected to database and running properly.
-- Deploy initial project on Heroku
+- Deploy initial project on Heroku.
 - Start working on implementation as listed on project board to do tasks(same as user stories per below) and detailed on wireframes.
-- Complete MVP
+- Complete minimum viable product(MVP).
 - Start working on nice to have features.
-- Complete Readme.md file
+- Complete Readme.md file.
 - Final test deployed app.
 - Prepare project presentation.  
 
@@ -60,4 +61,3 @@ https://www.thebalance.com/best-expense-tracker-apps-4158958
 
 - 50/30/20 budget guideline
 https://www.nerdwallet.com/blog/finance/how-to-build-a-budget/
-
