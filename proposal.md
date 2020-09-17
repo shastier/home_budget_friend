@@ -50,3 +50,10 @@ https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frame
 
 - Why should you use budgeting app?
 https://www.nerdwallet.com/blog/finance/budgeting-saving-tools/ 
+
+- Best Expense Tracker Apps of 2020
+https://www.thebalance.com/best-expense-tracker-apps-4158958
+
+- 50/30/20 budget guideline
+https://www.nerdwallet.com/blog/finance/how-to-build-a-budget/
+
