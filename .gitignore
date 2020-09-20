@@ -1,67 +1,67 @@
-*.rbc
-capybara-*.html
-.rspec
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/db/*.sqlite3-[0-9]*
-/public/system
-/coverage/
-/spec/tmp
-*.orig
-rerun.txt
-pickle-email-*.html
+budget_app/*.rbc
+budget_app/capybara-*.html
+budget_app/.rspec
+budget_app/db/*.sqlite3
+budget_app/db/*.sqlite3-journal
+budget_app/db/*.sqlite3-[0-9]*
+budget_app/public/system
+budget_app/coverage/
+budget_app/spec/tmp
+budget_app/*.orig
+budget_app/rerun.txt
+budget_app/pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+budget_app/log/*
+budget_app/tmp/*
+budget_app/!/log/.keep
+budget_app/!/tmp/.keep
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
-config/master.key
+budget_app/config/initializers/secret_token.rb
+budget_app/config/master.key
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
-.env
+budget_app/.env
 
 ## Environment normalization:
-/.bundle
-/vendor/bundle
+budget_app/.bundle
+budget_app/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+budget_app/.rvmrc
 
 # if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
-*.bowerrc
-bower.json
+budget_app/vendor/assets/bower_components
+budget_app/*.bowerrc
+budget_app/bower.json
 
 # Ignore pow environment settings
-.powenv
+budget_app/.powenv
 
 # Ignore Byebug command history file.
-.byebug_history
+budget_app/.byebug_history
 
 # Ignore node_modules
-node_modules/
+budget_app/node_modules/
 
 # Ignore precompiled javascript packs
-/public/packs
-/public/packs-test
-/public/assets
+budget_app/public/packs
+budget_app/public/packs-test
+budget_app/public/assets
 
 # Ignore yarn files
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
+budget_app/yarn-error.log
+budget_app/yarn-debug.log*
+budget_app/.yarn-integrity
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+budget_app/storage/*
+budget_app/!/storage/.keep
