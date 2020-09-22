@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_200545) do
+ActiveRecord::Schema.define(version: 2020_09_22_212044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,17 +26,21 @@ ActiveRecord::Schema.define(version: 2020_09_22_200545) do
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_expenses_on_category_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "post_expenses", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "expense_id"
     t.float "cost"
     t.boolean "paid"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "expense_id", null: false
+    t.index ["expense_id"], name: "index_post_expenses_on_expense_id"
+    t.index ["user_id"], name: "index_post_expenses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +55,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_200545) do
   end
 
   add_foreign_key "expenses", "categories"
+  add_foreign_key "expenses", "users"
+  add_foreign_key "post_expenses", "expenses"
+  add_foreign_key "post_expenses", "users"
 end
