@@ -2,7 +2,7 @@
 class Api::V1::ExpensesController < ApiController
     before_action :set_expense, only: [:show, :update, :destroy]
   
-    # GET /expenses
+    # GET /api/v1/expenses
     def index
       @expenses = Expense.all
   
@@ -12,7 +12,7 @@ class Api::V1::ExpensesController < ApiController
       }
     end
   
-    # GET /expenses/1
+    # GET /api/v1/expenses/:id
     def show
       render json: {
         message: "ok",
@@ -20,27 +20,37 @@ class Api::V1::ExpensesController < ApiController
       }
     end
   
-    # POST /expenses
+    # POST /api/v1/expenses
     def create
-      @expense = Expense.new(expense_params)
+      expense = Expense.new(expense_params)
   
-      if @expense.save
-        render json: @expense, status: :created, location: @expense
+      if expense.save
+        render json: {
+          message: "ok",
+          expense: expense,
+        }
       else
-        render json: @expense.errors, status: :unprocessable_entity
+        render json: {
+          message: 'Could not create expense'
+        }
       end
     end
   
-    # PATCH/PUT /expenses/1
+    # PATCH/PUT /api/v1/expenses/:id
     def update
       if @expense.update(expense_params)
-        render json: @expense
+        render json: {
+          message: "updated successfully",
+          expense: @expense,
+        }
       else
-        render json: @expense.errors, status: :unprocessable_entity
+        render json: {
+          message: 'Could not update expense'
+        }
       end
     end
   
-    # DELETE /expenses/1
+    # DELETE /api/v1/expenses/:id
     def destroy
       @expense.destroy
     end
@@ -53,6 +63,6 @@ class Api::V1::ExpensesController < ApiController
   
       # Only allow a trusted parameter "white list" through.
       def expense_params
-        params.require(:expense).permit(:name)
+        params.require(:expense).permit(:description, :category_id)
       end
 end
