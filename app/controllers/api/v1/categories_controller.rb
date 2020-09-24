@@ -4,13 +4,19 @@ class Api::V1::CategoriesController < ApplicationController
     # GET /categories
     def index
       @categories = Category.all
-  
-      render json: @categories
+
+      render json: {
+        message: "ok",
+        categories:  @categories,
+      }
     end
   
     # GET /categories/1
     def show
-      render json: @category
+      render json: {
+        message: "ok",
+        category: @category
+      }
     end
   
     # POST /categories
