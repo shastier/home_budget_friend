@@ -6,12 +6,18 @@ class Api::V1::ExpensesController < ApplicationController
     def index
       @expenses = Expense.all
   
-      render json: @expenses
+      render json: {
+        message: "ok",
+        expenses:  @expenses ,
+      }
     end
   
     # GET /expenses/1
     def show
-      render json: @expense
+      render json: {
+        message: "ok",
+        expense: @expense
+      }
     end
   
     # POST /expenses

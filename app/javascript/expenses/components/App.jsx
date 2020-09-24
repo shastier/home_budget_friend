@@ -23,11 +23,11 @@ class App extends Component {
       }).catch(err => console.log(err));
   }
 
-updateStateFunction = (param) => {
-  this.setState({
-    updateState: param,
-  })
-}
+  updateStateFunction = (param) => {
+    this.setState({
+        updateState: param,
+    })
+  }
 
   render() {
     return (

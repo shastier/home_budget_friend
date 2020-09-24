@@ -18,9 +18,9 @@ class AllExpenses extends Component {
         fetch('/api/v1/expenses')
             .then(res => res.json())
             .then(res => {
-                console.log(res.data.expenses)
+                console.log(res.expenses)
                 this.setState({
-                    expenses : res.data.expenses,
+                    expenses : res.expenses,
                     dataLoaded: true,
                 });
             }).catch(err => console.log(err));
@@ -31,7 +31,7 @@ class AllExpenses extends Component {
             <div className="row">
                     {this.state.expenses.map((expense) => {                        
                         return (
-                        <h4>Description: ${expense.description}</h4>
+                          <h4>Description: {expense.description}</h4>
                         );
                     })}               
                 </div>            
