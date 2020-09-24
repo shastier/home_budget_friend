@@ -4,9 +4,10 @@ class Api::V1::PostExpensesController < ApiController
 
     def index
       post_expenses = PostExpense.all
+      
       render json: {
         message: "ok",
-        post_epenses:  @post_expenses,
+        post_epenses:  post_expenses,
       }
     end
   
