@@ -2,15 +2,17 @@ class Api::V1::PostExpensesController < ApiController
   # only logged in users can post expenses
     before_action :require_login
 
+    # GET /api/v1/post_expenses
     def index
       post_expenses = PostExpense.all
-      
+
       render json: {
         message: "ok",
         post_epenses:  post_expenses,
       }
     end
-  
+
+     # GET /api/v1/post_expenses/:id  
     def show
       post_expense = PostExpense.find(params[:id])
       
@@ -21,7 +23,8 @@ class Api::V1::PostExpensesController < ApiController
         username: post_expense_user.username 
       }
     end
-  
+    
+    # POST /api/v1/post_expenses
     def create
       post_expense = PostExpense.new(post_expense_params)
       post_expense.user = current_user
@@ -36,6 +39,20 @@ class Api::V1::PostExpensesController < ApiController
           message: 'Could not create post_expense'
         }
       end
+    end
+
+    # PATCH/PUT /api/v1/post_expenses/:id
+    def update
+      if @post_expense.update(post_expense_params)
+        render json: @post_expense
+      else
+        render json: @post_expense.errors, status: :unprocessable_entity
+      end
+    end
+  
+    # DELETE /api/v1/post_expenses/:id
+    def destroy
+      @post_expense.destroy
     end
   
     private
