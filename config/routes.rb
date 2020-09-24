@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post   "/login"       => "sessions#create"
   delete "/logout"      => "sessions#destroy"
   get "/profile"        => "users#profile"
+  # route: /users | Got to users controller
   resources :users
 
   # Categories route: /api/v1/categories
