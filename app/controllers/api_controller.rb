@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
     include ActionController::HttpAuthentication::Token::ControllerMethods
+    skip_before_action :verify_authenticity_token
 
     def require_login
       authenticate_token || render_unauthorized("Access denied")
