@@ -1,6 +1,6 @@
 class Api::V1::PostExpensesController < ApiController  
   # only logged in users can post expenses
-    before_action :require_login, :set_post_expense
+    before_action :require_login, :set_post_expense, only: [:show, :update, :destroy]
 
     # GET /api/v1/post_expenses
     def index
@@ -56,8 +56,17 @@ class Api::V1::PostExpensesController < ApiController
     end
   
     # DELETE /api/v1/post_expenses/:id
-    def destroy
-      @post_expense.destroy
+    def destroy      
+      if @post_expense.destroy
+        render json: {
+          message: "deleted successfully",
+          expense: @post_expense,
+        }
+      else
+        render json: {
+          message: 'Could not delete post_expense'
+        }
+      end
     end
   
     private
