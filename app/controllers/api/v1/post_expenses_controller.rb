@@ -1,4 +1,5 @@
-class PostExpensesController < ApiController
+class Api::V1::PostExpensesController < ApiController  
+  # only logged in users can post expenses
     before_action :require_login
 
     def index

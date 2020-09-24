@@ -16,11 +16,18 @@ Rails.application.routes.draw do
     end
   end
 
-    # Expenses route: /api/v1/expenses
-    namespace :api do
-      namespace :v1 do
-        resources :expenses
-      end
+  # Expenses route: /api/v1/expenses
+  namespace :api do
+    namespace :v1 do
+      resources :expenses
     end
+  end
+
+# Post_Expenses route: /api/v1/post_expenses
+  namespace :api do
+    namespace :v1 do
+      resources :post_expenses
+    end
+  end  
 
 end
