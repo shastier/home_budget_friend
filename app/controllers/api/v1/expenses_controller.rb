@@ -51,8 +51,7 @@ class Api::V1::ExpensesController < ApiController
     end
   
     # DELETE /api/v1/expenses/:id
-    def destroy
-      # @expense.destroy
+    def destroy 
       if @expense.destroy
         render json: {
           message: "deleted successfully",

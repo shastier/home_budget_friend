@@ -1,7 +1,7 @@
 class Api::V1::CategoriesController < ApiController
     before_action :set_category, only: [:show, :update, :destroy]
   
-    # GET /categories
+    # GET /api/v1/categories
     def index
       @categories = Category.all
 
@@ -11,7 +11,7 @@ class Api::V1::CategoriesController < ApiController
       }
     end
   
-    # GET /categories/1
+    # GET /api/v1/categories/:id
     def show
       render json: {
         message: "ok",
@@ -19,29 +19,48 @@ class Api::V1::CategoriesController < ApiController
       }
     end
   
-    # POST /categories
+    # POST /api/v1/categories
     def create
-      @category = Category.new(category_params)
+      category = Category.new(category_params)
   
-      if @category.save
-        render json: @category, status: :created, location: @category
+      if category.save
+        render json: {
+          message: "ok",
+          category: category,
+        }
       else
-        render json: @category.errors, status: :unprocessable_entity
+        render json: {
+          message: 'Could not create category'
+        }
       end
     end
   
-    # PATCH/PUT /categories/1
+    # PATCH/PUT /api/v1/categories/:id
     def update
       if @category.update(category_params)
-        render json: @category
+        render json: {
+          message: "updated successfully",
+          category: @category,
+        }
       else
-        render json: @category.errors, status: :unprocessable_entity
+        render json: {
+          message: 'Could not update category'
+        }
       end
     end
   
-    # DELETE /categories/1
-    def destroy
-      @category.destroy
+    # DELETE /api/v1/categories/:id
+    def destroy      
+      if @category.destroy
+        render json: {
+          message: "deleted successfully",
+          category: @category,
+        }
+      else
+        render json: {
+          message: 'Could not delete category'
+        }
+      end      
     end
   
     private
