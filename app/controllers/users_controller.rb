@@ -11,8 +11,9 @@ class UsersController < ApiController
         user_post_expenses = PostExpense.where(user_id: user.id)
       # write `User.profile_info`
         render json: {
-            user: { username: user.username, email: user.email, name: user.name, last_name: user.last_name },
-            post_expenses: { user_post_expenses } 
+            message: "ok",
+            user: { username: user.username, email: user.email, name: user.name, last_name: user.last_name, },
+            post_expenses: user_post_expenses
         }
     end
   
