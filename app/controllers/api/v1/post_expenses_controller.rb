@@ -1,6 +1,6 @@
 class Api::V1::PostExpensesController < ApiController  
   # only logged in users can post expenses
-    before_action :require_login
+    before_action :require_login, :set_post_expense
 
     # GET /api/v1/post_expenses
     def index
@@ -44,9 +44,14 @@ class Api::V1::PostExpensesController < ApiController
     # PATCH/PUT /api/v1/post_expenses/:id
     def update
       if @post_expense.update(post_expense_params)
-        render json: @post_expense
+        render json: {
+          message: "updated successfully",
+          post_expense: @post_expense,
+        }
       else
-        render json: @post_expense.errors, status: :unprocessable_entity
+        render json: {
+          message: 'Could not update post_expense'
+        }
       end
     end
   
@@ -56,6 +61,11 @@ class Api::V1::PostExpensesController < ApiController
     end
   
     private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_post_expense
+      @post_expense = PostExpense.find(params[:id])
+    end    
+
     def post_expense_params
       params.require(:post_expense).permit(:expense_id, :cost, :paid, :date)
     end
