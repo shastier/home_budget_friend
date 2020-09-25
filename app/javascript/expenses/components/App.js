@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       auth: Auth.isUserAuthenticated(),
       userData: null,
-      expenses: null,      
+      userPostExpenses: null,      
     }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
@@ -154,7 +154,7 @@ class App extends Component {
                 <Route exact path='/dashboard' render={() => (
                   !this.state.auth
                   ? <Redirect to='/login' />
-                  : <Dashboard  user={this.state.user} />
+                  : <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} />
                 )} />
                 
             </div>
