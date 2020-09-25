@@ -122,7 +122,11 @@ class App extends Component {
             <Header /> 
             <div className="container">
                 <Route exact path='/' 
-                    render={() => ( <Home /> )} />    
+                    render={() => ( <Home /> )} />
+                <Route exact path='/login' 
+                    render={() => ( <LoginForm /> )} /> 
+                <Route exact path='/register' 
+                    render={() => ( <RegisterForm /> )} />
             </div>
         </div>        
       </Router>
