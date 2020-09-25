@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "static_pages#home"
   get "/login"  => "static_pages#login"
   get "/register"  => "static_pages#signup"
+  get "/dashboard" => "static_pages#dashboard"
 
   #  map SessionsController actions to /login and /logout
   post   "/login"       => "sessions#create"

@@ -43,13 +43,13 @@ class App extends Component {
     })
   }
 
-  handleLoginSubmit(e) {
+  handleLoginSubmit(e, data) {
     e.preventDefault();
     fetch('/login', {
       method: 'POST',
       body: JSON.stringify({
-        username: this.state.loginUserName,
-        password: this.state.loginPassword,
+        username: data.username,
+        password: data.password,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -122,11 +122,25 @@ class App extends Component {
             <Header /> 
             <div className="container">
                 <Route exact path='/' 
-                    render={() => ( <Home /> )} />
-                <Route exact path='/login' 
-                    render={() => ( <LoginForm /> )} /> 
+                    render={() => ( <Home /> 
+                )} />
+
+                <Route exact path='/login' render={() => (
+                  this.state.auth
+                  ? <Redirect to='/dashboard' />
+                  : <LoginForm handleLoginSubmit = {this.handleLoginSubmit} />
+                )} /> 
+
                 <Route exact path='/register' 
-                    render={() => ( <RegisterForm /> )} />
+                    render={() => ( <RegisterForm />
+                )} />
+
+                <Route exact path='/dashboard' render={() => (
+                  !this.state.auth
+                  ? <Redirect to='/login' />
+                  : <Dashboard  user={this.state.user} />
+                )} />
+                
             </div>
         </div>        
       </Router>
