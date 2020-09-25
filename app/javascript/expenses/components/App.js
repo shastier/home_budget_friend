@@ -70,16 +70,17 @@ class App extends Component {
     })
   }
 
-  handleRegisterSubmit(e) {
+  handleRegisterSubmit(e, data) {
     e.preventDefault();
     fetch('/users', {
       method: 'POST',
       body: JSON.stringify({
         user: {
-          username: this.state.registerUserName,
-          password: this.state.registerPassword,
-          email: this.state.registerEmail,
-          name: this.state.registerName,
+          name: data.first_name,
+          last_name: data.last_name,
+          email: data.email,
+          username: data.username,
+          password: data.password,
         }
       }),
       headers: {
@@ -99,6 +100,7 @@ class App extends Component {
   }
 
   logout() {
+    alert('logout');
     fetch('/logout', {
       method: 'DELETE',
       headers: {
@@ -115,11 +117,17 @@ class App extends Component {
     })
   }
 
+  updateStateFunction = (param) => {
+    this.setState({
+      updateState: param,
+    })
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
-            <Header /> 
+            <Header auth={this.state.auth} /> 
             <div className="container">
                 <Route exact path='/' 
                     render={() => ( <Home /> 
@@ -131,8 +139,16 @@ class App extends Component {
                   : <LoginForm handleLoginSubmit = {this.handleLoginSubmit} />
                 )} /> 
 
-                <Route exact path='/register' 
-                    render={() => ( <RegisterForm />
+                <Route exact path="/logout" render={() => {
+                  this.state.auth
+                  ? this.logout()
+                  : <Redirect to='/' />
+                }}/>
+
+                <Route exact path='/register' render={() => (
+                  this.state.auth
+                  ? <Redirect to='/dashboard' />
+                  : <RegisterForm handleRegisterSubmit = {this.handleRegisterSubmit} />
                 )} />
 
                 <Route exact path='/dashboard' render={() => (

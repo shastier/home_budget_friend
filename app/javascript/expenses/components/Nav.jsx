@@ -20,8 +20,9 @@ const Nav = (props) => {
                 <li><a href="#">Page 2</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>                
                 <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/logout"><span className="glyphicon glyphicon-log-out"></span> Log out</a></li>
                 </ul>
             </div>
             </nav>
