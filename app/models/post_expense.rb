@@ -5,6 +5,6 @@ class PostExpense < ApplicationRecord
     # return a list of post expenses by user_id
     def self.get_post_expenses_by_user_id(id)
         return PostExpense.joins(:expense).where(post_expenses: {user_id: id})
-                                        .select(:id, :description, :cost, :paid, :date)
+                                        .select(:id, :description, :cost, :paid, :date, :category_id)
     end
 end
