@@ -159,20 +159,20 @@ class App extends Component {
                 <Route exact path='/dashboard' render={() => (
                   !this.state.auth
                   ? <Redirect to='/login' />
-                  : this.state.userPostExpensesLoaded ? <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} /> 
+                  : this.state.userPostExpensesLoaded ? <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} page={"default"} /> 
                   : ''
                 )} />
 
                 <Route exact path='/new' render={() => (
                   !this.state.auth
                   ? <Redirect to='/login' />
-                  : <Dashboard user={this.state.userData} edit={false} /> 
+                  : <Dashboard user={this.state.userData} page={"new"} /> 
                 )} />
 
                 <Route exact path='/edit' render={() => (
                   !this.state.auth
                   ? <Redirect to='/login' />
-                  : <Dashboard  user={this.state.userData} edit={true} /> 
+                  : <Dashboard  user={this.state.userData} page={"edit"} /> 
                 )} />
                 
             </div>

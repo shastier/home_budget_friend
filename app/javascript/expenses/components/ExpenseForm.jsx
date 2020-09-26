@@ -5,9 +5,10 @@ class ExpenseCreateForm extends Component {
         super(props);
         this.state = {
             description: props.edit ? props.expense.value.description : '',
-            paid: props.edit ? props.expense.value.paid  : '',
+            paid: props.edit ? props.expense.value.paid : '',
             cost: props.edit ? props.expense.value.cost : '',
             date: props.edit ? props.expense.value.date : '',
+            page: this.props.page,
         }
     }
 
@@ -28,21 +29,20 @@ class ExpenseCreateForm extends Component {
     render() {
         return (
             <div className="expensecontainer">
-            <div className="expenseform">
+                <h1>Form page: {this.state.page} </h1>
+            {/* <div className="expenseform">
             <form className="addExpenseForm"
             onSubmit={(
                 this.props.edit
                 ? (e) => this.props.handleExpenseSubmit('PUT', e, this.state, this.props.expense.value.id)
                 : (e) => this.props.handleExpenseSubmit('POST', e, this.state))}>
               
-
                 <input 
                 type="text" 
                 name="description" 
                 value={this.state.description || ''}  
                 placeholder={this.props.edit ? this.props.expense.value.description : "Select expense" }
                 onChange={this.handleChange} />
-
 
                 <input 
                 type="date" 
@@ -72,7 +72,7 @@ class ExpenseCreateForm extends Component {
 
                 <input type="submit" value={(this.props.edit ? 'Edit expense' : 'Add expense')}/>
             </form>
-            </div>  
+            </div>   */}
             </div>  
         );
         
