@@ -14,7 +14,7 @@ class Dashboard extends Component {
             page: this.props.page,
             expenseToEdit: null,
         }
-        this.handleExpenseSubmit = this.handleExpenseSubmit(this);          
+        // this.handleExpenseSubmit = this.handleExpenseSubmit(this);          
     } 
 
     componentDidMount() {
@@ -22,28 +22,29 @@ class Dashboard extends Component {
     }
 
     handleExpenseSubmit(method, e, data, id) {
-        // e.preventDefault();
-        // fetch(`/api/v1/post_expenses/${id || ''}`, {
-        //   method: method,
-        //   body: JSON.stringify({
-        //     post_expense: {
-        //       expense_id: data.expense_id,
-        //       cost: data.cost,
-        //       paid: data.paid,
-        //       date: data.date,
-        //     }
-        //   }),
-        //   headers: {
-        //     'Authorization': `Token ${Auth.getToken()}`,
-        //     token: Auth.getToken(),
-        //     'Content-Type': 'application/json',
-        //   }
-        // }).then(res => res.json())
-        // .then(res => {
-        //     this.getUserProfile()
-        // }).catch(err => {
-        //   console.log(err);
-        // })
+        console.log(`method: ${method}, data: ${data}`)
+        e.preventDefault();
+        fetch(`/api/v1/post_expenses/${id || ''}`, {
+          method: method,
+          body: JSON.stringify({
+            post_expense: {
+              expense_id: data.expense_id,
+              cost: data.cost,
+              paid: data.paid,
+              date: data.date,
+            }
+          }),
+          headers: {
+            'Authorization': `Token ${Auth.getToken()}`,
+            token: Auth.getToken(),
+            'Content-Type': 'application/json',
+          }
+        }).then(res => res.json())
+        .then(res => {
+            this.getUserProfile()
+        }).catch(err => {
+          console.log(err);
+        })
     }
 
     getUserProfile = () => {
@@ -65,6 +66,7 @@ class Dashboard extends Component {
     }
     
     decideWhichToRender = () => {
+        alert(this.state.page === 'default')
         if(this.state.page === 'default'){
             return <div>
                 <h1>Hello, {this.state.user.name} </h1>
