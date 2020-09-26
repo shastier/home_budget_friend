@@ -18,7 +18,9 @@ class App extends Component {
     this.state = {
       auth: Auth.isUserAuthenticated(),
       userData: null,
-      userPostExpenses: null,      
+      userDataLoaded: false,
+      userPostExpenses: null,    
+      userPostExpensesLoaded: false,  
     }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
@@ -37,7 +39,7 @@ class App extends Component {
       this.setState({
         userData: res.user,
         userDataLoaded: true,
-        userPostExpenses: res.post_expenses,
+        userPostExpenses: res.post_expenses.map((expense) => { return expense }),
         userPostExpensesLoaded: true,
       })
     })
@@ -100,7 +102,6 @@ class App extends Component {
   }
 
   logout() {
-    alert('logout');
     fetch('/logout', {
       method: 'DELETE',
       headers: {
@@ -151,10 +152,13 @@ class App extends Component {
                   : <RegisterForm handleRegisterSubmit = {this.handleRegisterSubmit} />
                 )} />
 
+                
+
                 <Route exact path='/dashboard' render={() => (
                   !this.state.auth
                   ? <Redirect to='/login' />
-                  : <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} />
+                  : this.state.userPostExpensesLoaded ? <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} /> 
+                  : ''
                 )} />
                 
             </div>

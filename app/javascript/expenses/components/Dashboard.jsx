@@ -2,41 +2,27 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        expenses: [],
-        dataLoaded: false,            
-    }        
-}
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: this.props.user,
+            expenses: this.props.postExpenses,
+        }          
+    } 
 
-componentDidMount() {
-   this.getAllExpenses();          
-}
+    componentDidMount() {
 
-getAllExpenses = () => {
-    fetch('/api/v1/expenses')
-        .then(res => res.json())
-        .then(res => {
-            console.log(res.expenses)
-            this.setState({
-                expenses : res.expenses,
-                dataLoaded: true,
-            });
-        }).catch(err => console.log(err));
-}
+    }
 
-render() {
-    return (            
-        <div className="row">
-                {this.state.expenses.map((expense) => {                        
-                    return (
-                      <h4>Description: {expense.description}</h4>
-                    );
-                })}               
-            </div>            
-    )
-}    
+    render() {
+        return <>
+            <h1>Hello, {this.state.user.name} </h1>
+            {this.state.expenses.map((expense) => {  
+                return (
+                    <h4 key={expense.id}>Cost: {expense.cost}</h4>
+                );
+            })} 
+        </>
+    }
 };
 export default Dashboard;
