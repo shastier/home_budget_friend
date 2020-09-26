@@ -19,7 +19,12 @@ class Dashboard extends Component {
             <h1>Hello, {this.state.user.name} </h1>
             {this.state.expenses.map((expense) => {  
                 return (
-                    <h4 key={expense.id}>Cost: {expense.cost}</h4>
+                    <span key={expense.id}>
+                        <h4>Cost: ${expense.cost}</h4>
+                        <h4>Description: {expense.description}</h4>
+                        <h4>Date: {expense.date}</h4>
+                        <h4>Paid: {expense.paid ? "yes" : "no"}</h4>
+                    </span>
                 );
             })} 
         </>
