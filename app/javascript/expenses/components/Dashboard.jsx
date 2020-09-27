@@ -22,7 +22,6 @@ class Dashboard extends Component {
     }
 
     handleExpenseSubmit(method, e, data, id) {
-        console.log(`method: ${method}, data: ${data}`)
         e.preventDefault();
         fetch(`/api/v1/post_expenses/${id || ''}`, {
           method: method,
@@ -66,7 +65,6 @@ class Dashboard extends Component {
     }
     
     decideWhichToRender = () => {
-        alert(this.state.page === 'default')
         if(this.state.page === 'default'){
             return <div>
                 <h1>Hello, {this.state.user.name} </h1>
