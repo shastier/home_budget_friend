@@ -12,9 +12,6 @@ class ExpenseCreateForm extends Component {
         }
     }
 
-    componentDidMount(){
-    }
-
     handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -45,7 +42,6 @@ class ExpenseCreateForm extends Component {
                     name="date" 
                     value={this.state.date || ''} 
                     placeholder={this.props.edit ? this.props.expense.value.date : "Date"}
-                    
                     onChange={this.handleChange} />
 
                     <input
@@ -53,8 +49,6 @@ class ExpenseCreateForm extends Component {
                     name="cost"
                     value={this.state.cost || ''}
                     placeholder={this.props.edit ? this.props.expense.value.cost : "$ Cost"}
-
-                    
                     onChange={this.handleChange} />
 
                     <input
@@ -62,18 +56,13 @@ class ExpenseCreateForm extends Component {
                     name="paid"
                     value={this.state.paid || ''}
                     placeholder={this.props.edit ? this.props.expense.value.paid : "Paid"}
-
-                    
                     onChange={this.handleChange} />
 
-                    <input type="submit" value={(this.state.page==='edit' ? 'Edit expense' : 'Add Expense')}/>
+                    <input type="submit" value={(this.state.page==='edit' ? 'Edit' : 'Add')}/>
                 </form>
             </div>  
         );
-        
-        
     }   
-
 }
 
 export default ExpenseCreateForm;
