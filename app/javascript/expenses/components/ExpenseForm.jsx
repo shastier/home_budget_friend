@@ -71,8 +71,8 @@ class ExpenseCreateForm extends Component {
                     onChange={this.handleChange} />
 
                     <select name="paid" onChange={this.handleChange}>
-                        <option value="false">"No"</option>
-                        <option value="true">"Yes"</option>                        
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
                     </select>
 
                     <input type="submit" value={(this.state.page==='edit' ? 'Edit' : 'Add')}/>
