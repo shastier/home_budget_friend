@@ -66,7 +66,7 @@ class ExpenseCreateForm extends Component {
                     
                     onChange={this.handleChange} />
 
-                    <input type="submit" value={(this.props.edit ? 'Edit expense' : 'Add Expense')}/>
+                    <input type="submit" value={(this.state.page==='edit' ? 'Edit expense' : 'Add Expense')}/>
                 </form>
             </div>  
         );
