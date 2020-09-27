@@ -27,7 +27,7 @@ class ExpenseCreateForm extends Component {
                 <form className="expenseForm"
                 onSubmit={(
                     this.state.page === "edit"
-                    ? (e) => this.props.handleExpenseSubmit('PUT', e, this.state, this.props.expense.value.id)
+                    ? (e) => this.props.handleExpenseSubmit('PUT', e, this.state, this.props.expense.id)
                     : (e) => this.props.handleExpenseSubmit('POST', e, this.state))}>
                 
                     <input 

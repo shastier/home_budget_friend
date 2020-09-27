@@ -98,7 +98,7 @@ class Dashboard extends Component {
           return <ExpenseForm handleExpenseSubmit={this.handleExpenseSubmit} page={this.state.page}/>
         }
         else if(this.state.page === 'edit'){
-          return <ExpenseForm handleExpenseSubmit={this.handleExpenseSubmit} page={this.state.page} />
+          return <ExpenseForm handleExpenseSubmit={this.handleExpenseSubmit} page={this.state.page} expense={this.state.expenseToEdit} />
         }
     }
 
