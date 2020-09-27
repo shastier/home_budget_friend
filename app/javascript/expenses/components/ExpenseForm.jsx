@@ -43,7 +43,7 @@ class ExpenseCreateForm extends Component {
     render() {
         return (
             <div className="expensecontainer">
-                <h1>Form page: {this.state.page} id: {this.state.expense_id} </h1>
+                <h1>{this.state.page === "edit" ? "Edit" : "Add New"} Expense</h1>
                 <form className="expenseForm"
                 onSubmit={(
                     this.state.page === "edit"
@@ -71,8 +71,8 @@ class ExpenseCreateForm extends Component {
                     onChange={this.handleChange} />
 
                     <select name="paid" onChange={this.handleChange}>
-                        <option value="false">"No"</option>
-                        <option value="true">"Yes"</option>                        
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
                     </select>
 
                     <input type="submit" value={(this.state.page==='edit' ? 'Edit' : 'Add')}/>

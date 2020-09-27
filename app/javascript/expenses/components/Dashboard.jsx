@@ -14,6 +14,7 @@ class Dashboard extends Component {
             expenses: this.props.postExpenses,
             page: this.props.page,
             expenseToEdit: null,
+            total: 0.00,
         }
         this.deletePostExpense = this.deletePostExpense.bind(this);
         this.changePage = this.changePage.bind(this);
@@ -95,8 +96,7 @@ class Dashboard extends Component {
         })
     }
 
-    getPostExpense(id) {
-      console.log(`Expense id: ${id}`)
+    getPostExpense(id) {      
       fetch(`/api/v1/post_expenses/${id}`, {
         method: 'GET',
         headers: {
@@ -105,8 +105,7 @@ class Dashboard extends Component {
         }
       })
         .then((res) => res.json())
-        .then((expense) => {
-          console.log(`Here is the expense to edit: ${expense.post_expense}`);
+        .then((expense) => {          
           this.setState({
             expenseToEdit: expense.post_expense,
             page: 'edit',
@@ -121,9 +120,11 @@ class Dashboard extends Component {
         if(this.state.page === 'default'){
             return <div>
                 <h1>Hello, {this.state.user.name} </h1>
-                {this.state.expenses.map((expense) => {  
+                {this.state.expenses.map((expense) => { 
+                  this.state.total+= expense.cost 
                     return <PostExpense expense={expense} key={expense.id} changePage={this.changePage} deletePostExpense={this.deletePostExpense} getPostExpense={this.getPostExpense} />
                 })} 
+                <h3>Total: ${this.state.total}</h3>
             </div>
         }
         else if(this.state.page === 'new'){
