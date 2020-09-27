@@ -96,8 +96,7 @@ class Dashboard extends Component {
         })
     }
 
-    getPostExpense(id) {
-      console.log(`Expense id: ${id}`)
+    getPostExpense(id) {      
       fetch(`/api/v1/post_expenses/${id}`, {
         method: 'GET',
         headers: {
@@ -106,8 +105,7 @@ class Dashboard extends Component {
         }
       })
         .then((res) => res.json())
-        .then((expense) => {
-          console.log(`Here is the expense to edit: ${expense.post_expense}`);
+        .then((expense) => {          
           this.setState({
             expenseToEdit: expense.post_expense,
             page: 'edit',

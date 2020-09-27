@@ -6,8 +6,7 @@ import Nav from './Nav';
 const Header = (props) => {
   return (
     <header className="header headernav">
-      <Nav auth={props.auth}/>
-        <div className="logo">Budget App!!!</div>
+      <Nav auth={props.auth}/>        
     </header>    
   );
 };
