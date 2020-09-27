@@ -50,8 +50,6 @@ class Dashboard extends Component {
     }
 
     handleExpenseSubmit(method, e, data, id) {
-      console.log(`here is the id: ${id}`);
-      alert(id);
         e.preventDefault();
         fetch(`/api/v1/post_expenses/${id ? id : ''}`, {
           method: method,
@@ -143,22 +141,3 @@ class Dashboard extends Component {
     }
 };
 export default Dashboard;
-
-// <Route exact path='/new' render={() => (
-//     !this.state.auth
-//     ? <Redirect to='/login' />
-//     : <ExpenseForm  user={this.state.userData} handleExpenseSubmit={this.handleExpenseSubmit} edit={false} /> 
-//   )} />
-
-//   <Route exact path='/edit' render={() => (
-//     !this.state.auth
-//     ? <Redirect to='/login' />
-//     : <ExpenseForm  user={this.state.userData} handleExpenseSubmit={this.handleExpenseSubmit} edit={true} /> 
-//   )} />
-
-// if(this.state.page === 'default'){
-//     return <div>
-//       <button onClick={() => this.setPage('add')}>Add an outfit!</button>
-//       {((this.state.dataLoaded === false) ? <h1>You have no outfits yet</h1> : <UserPage user={this.props.user} outfits={this.state.outfits} yourPage={true} edit={this.edit}/>)}
-//     </div>
-// }
