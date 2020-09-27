@@ -10,6 +10,7 @@ const PostExpense = (props) => {
             <h4>Paid: {props.expense.paid ? "yes" : "no"}</h4>
 
             <button className="btn" onClick={() => props.deletePostExpense(props.expense.id)}> Delete </button>
+            <button className="btn" onClick={() => props.getPostExpense(props.expense.id)}> Edit </button>
         </div>
     );            
 };

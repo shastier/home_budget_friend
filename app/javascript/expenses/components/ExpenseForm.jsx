@@ -4,15 +4,16 @@ class ExpenseCreateForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            expense_id: props.edit ? props.expense.value.expense_id : '',
-            paid: props.edit ? props.expense.value.paid : '',
-            cost: props.edit ? props.expense.value.cost : '',
-            date: props.edit ? props.expense.value.date : '',
+            expense_id: props.expense ? props.expense.expense_id : '',
+            paid: props.expense ? props.expense.paid : '',
+            cost: props.expense ? props.expense.cost : '',
+            date: props.expense ? props.expense.date : '',
             page: this.props.page,
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (e) => {
+    handleChange (e) {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
@@ -23,7 +24,7 @@ class ExpenseCreateForm extends Component {
     render() {
         return (
             <div className="expensecontainer">
-                <h1>Form page: {this.state.page} </h1>
+                <h1>Form page: {this.state.page} id: {this.state.expense_id} </h1>
                 <form className="expenseForm"
                 onSubmit={(
                     this.state.page === "edit"
