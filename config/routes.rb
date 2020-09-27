@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/register"  => "static_pages#signup"
   get "/dashboard" => "static_pages#dashboard"
   get "/new" => "static_pages#create" # add new expense
-  get "/edit" => "static_pages#update" # add new expense
+  get "/edit" => "static_pages#update" # edit expense
 
   #  map SessionsController actions to /login and /logout
   post   "/login"       => "sessions#create"

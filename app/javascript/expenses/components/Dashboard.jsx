@@ -16,6 +16,8 @@ class Dashboard extends Component {
             expenseToEdit: null,
         }
         this.deletePostExpense = this.deletePostExpense.bind(this);
+        this.changePage = this.changePage.bind(this);
+        this.getPostExpense = this.getPostExpense.bind(this);
         // this.handleExpenseSubmit = this.handleExpenseSubmit(this);          
     } 
 
@@ -23,8 +25,13 @@ class Dashboard extends Component {
 
     }
 
+    changePage(page) {
+      this.setState({
+        page: page,
+      });
+    }
+
     deletePostExpense(id) {
-      console.log(`Expense id: ${id}`)
       fetch(`/api/v1/post_expenses/${id}`, {
         method: 'DELETE',
         headers: {
@@ -44,14 +51,14 @@ class Dashboard extends Component {
 
     handleExpenseSubmit(method, e, data, id) {
         e.preventDefault();
-        fetch(`/api/v1/post_expenses/${id || ''}`, {
+        fetch(`/api/v1/post_expenses/${id ? id : ''}`, {
           method: method,
           body: JSON.stringify({
             post_expense: {
               expense_id: data.expense_id,
               cost: data.cost,
               paid: data.paid,
-              date: data.date,
+              date: data.date,              
             }
           }),
           headers: {
@@ -60,8 +67,11 @@ class Dashboard extends Component {
             'Content-Type': 'application/json',
           }
         }).then(res => res.json())
-        .then(res => {
-            this.getUserProfile()
+        .then(expense => {
+          this.setState({
+            expenseToEdit: expense,
+          })
+          this.getUserProfile()
         }).catch(err => {
           console.log(err);
         })
@@ -84,13 +94,35 @@ class Dashboard extends Component {
           })
         })
     }
+
+    getPostExpense(id) {
+      console.log(`Expense id: ${id}`)
+      fetch(`/api/v1/post_expenses/${id}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${Auth.getToken()}`,
+          token: `${Auth.getToken()}`,
+        }
+      })
+        .then((res) => res.json())
+        .then((expense) => {
+          console.log(`Here is the expense to edit: ${expense.post_expense}`);
+          this.setState({
+            expenseToEdit: expense.post_expense,
+            page: 'edit',
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        })        
+    }
     
     decideWhichToRender = () => {
         if(this.state.page === 'default'){
             return <div>
                 <h1>Hello, {this.state.user.name} </h1>
                 {this.state.expenses.map((expense) => {  
-                    return <PostExpense expense={expense} key={expense.id} deletePostExpense={this.deletePostExpense} />
+                    return <PostExpense expense={expense} key={expense.id} changePage={this.changePage} deletePostExpense={this.deletePostExpense} getPostExpense={this.getPostExpense} />
                 })} 
             </div>
         }
@@ -98,7 +130,7 @@ class Dashboard extends Component {
           return <ExpenseForm handleExpenseSubmit={this.handleExpenseSubmit} page={this.state.page}/>
         }
         else if(this.state.page === 'edit'){
-          return <ExpenseForm handleExpenseSubmit={this.handleExpenseSubmit} page={this.state.page} />
+          return <ExpenseForm handleExpenseSubmit={this.handleExpenseSubmit} page={this.state.page} expense={this.state.expenseToEdit} />
         }
     }
 
@@ -109,22 +141,3 @@ class Dashboard extends Component {
     }
 };
 export default Dashboard;
-
-// <Route exact path='/new' render={() => (
-//     !this.state.auth
-//     ? <Redirect to='/login' />
-//     : <ExpenseForm  user={this.state.userData} handleExpenseSubmit={this.handleExpenseSubmit} edit={false} /> 
-//   )} />
-
-//   <Route exact path='/edit' render={() => (
-//     !this.state.auth
-//     ? <Redirect to='/login' />
-//     : <ExpenseForm  user={this.state.userData} handleExpenseSubmit={this.handleExpenseSubmit} edit={true} /> 
-//   )} />
-
-// if(this.state.page === 'default'){
-//     return <div>
-//       <button onClick={() => this.setPage('add')}>Add an outfit!</button>
-//       {((this.state.dataLoaded === false) ? <h1>You have no outfits yet</h1> : <UserPage user={this.props.user} outfits={this.state.outfits} yourPage={true} edit={this.edit}/>)}
-//     </div>
-// }

@@ -13,12 +13,9 @@ const Nav = (props) => {
                 <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" href="#">My Account <span className="caret"></span></a>
                     <ul className="dropdown-menu">
                     <li><a href="/dashboard">All Expenses</a></li>
-                    <li><a href="/new">Add Expense</a></li>
-                    <li><a href="/edit">Edit Expense </a></li>
-                    <li><a href="#">Delete Expense </a></li>
+                    <li><a href="/new">Add Expense</a></li>      
                     </ul>
-                </li>
-                <li><a href="#">Page 2</a></li>
+                </li>          
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                 <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>                
