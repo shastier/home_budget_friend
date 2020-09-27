@@ -70,12 +70,10 @@ class ExpenseCreateForm extends Component {
                     placeholder={this.props.edit ? this.props.expense.value.cost : "$ Cost"}
                     onChange={this.handleChange} />
 
-                    <input
-                    type="text"
-                    name="paid"
-                    value={this.state.paid || ''}
-                    placeholder={this.props.edit ? this.props.expense.value.paid : "Paid"}
-                    onChange={this.handleChange} />
+                    <select name="paid" onChange={this.handleChange}>
+                        <option value="false">"No"</option>
+                        <option value="true">"Yes"</option>                        
+                    </select>
 
                     <input type="submit" value={(this.state.page==='edit' ? 'Edit' : 'Add')}/>
                 </form>
