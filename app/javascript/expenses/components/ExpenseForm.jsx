@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Auth from '../Auth';
 
 class ExpenseCreateForm extends Component {
     constructor(props) {
@@ -9,8 +10,26 @@ class ExpenseCreateForm extends Component {
             cost: props.expense ? props.expense.cost : '',
             date: props.expense ? props.expense.date : '',
             page: this.props.page,
+            expenses: [],
+            expensesDataLoaded: false,
         }
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount() {
+        fetch('/api/v1/expenses', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${Auth.getToken()}`,
+                token: `${Auth.getToken()}`,
+            }
+            }).then(res => res.json())
+            .then(res => {
+                this.setState({                    
+                    expenses: res.expenses.map((expense) => { return expense }),
+                    expensesDataLoaded: true,                    
+                })
+            })
     }
 
     handleChange (e) {
@@ -31,12 +50,11 @@ class ExpenseCreateForm extends Component {
                     ? (e) => this.props.handleExpenseSubmit('PUT', e, this.state, this.props.expense.id)
                     : (e) => this.props.handleExpenseSubmit('POST', e, this.state))}>
                 
-                    <input 
-                    type="text" 
-                    name="expense_id" 
-                    value={this.state.expense_id || ''}  
-                    placeholder={this.props.edit ? this.props.expense.value.expense_id : "Select expense" }
-                    onChange={this.handleChange} />
+                    <select name="expense_id" onChange={this.handleChange}>
+                        {this.state.expenses.map((expense) => {
+                            return <option value={expense.id}>{expense.description}</option>
+                        })}
+                    </select>
 
                     <input 
                     type="date" 
