@@ -8,7 +8,7 @@ class UsersController < ApiController
   
     def profile
         user = User.find_by!(auth_token: request.headers[:token])
-        user_post_expenses = PostExpense.where(user_id: user.id)
+        user_post_expenses = PostExpense.get_post_expenses_by_user_id(user.id)
       # write `User.profile_info`
         render json: {
             message: "ok",

@@ -20,7 +20,7 @@ class App extends Component {
       userData: null,
       userDataLoaded: false,
       userPostExpenses: null,    
-      userPostExpensesLoaded: false,  
+      userPostExpensesLoaded: false, 
     }
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
@@ -28,6 +28,10 @@ class App extends Component {
   }
 
   componentDidMount() {    
+    this.getUserProfile();
+  }
+
+  getUserProfile = () => {
     fetch('/profile', {
       method: 'GET',
       headers: {
@@ -152,13 +156,23 @@ class App extends Component {
                   : <RegisterForm handleRegisterSubmit = {this.handleRegisterSubmit} />
                 )} />
 
-                
-
                 <Route exact path='/dashboard' render={() => (
                   !this.state.auth
                   ? <Redirect to='/login' />
-                  : this.state.userPostExpensesLoaded ? <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} /> 
+                  : this.state.userPostExpensesLoaded ? <Dashboard  user={this.state.userData} postExpenses={this.state.userPostExpenses} page={"default"} /> 
                   : ''
+                )} />
+
+                <Route exact path='/new' render={() => (
+                  !this.state.auth
+                  ? <Redirect to='/login' />
+                  : <Dashboard user={this.state.userData} page={"new"} /> 
+                )} />
+
+                <Route exact path='/edit' render={() => (
+                  !this.state.auth
+                  ? <Redirect to='/login' />
+                  : <Dashboard  user={this.state.userData} page={"edit"} /> 
                 )} />
                 
             </div>
