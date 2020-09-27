@@ -14,7 +14,7 @@ class Dashboard extends Component {
             expenses: this.props.postExpenses,
             page: this.props.page,
             expenseToEdit: null,
-            total: 0,
+            total: 0.00,
         }
         this.deletePostExpense = this.deletePostExpense.bind(this);
         this.changePage = this.changePage.bind(this);
