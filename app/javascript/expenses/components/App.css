@@ -8,9 +8,9 @@ form {
     display: flex;
     flex-direction: column;
     border: 1px solid #eee;
-  }
+}
   
-  form input {
+form input, select {
     border-bottom: 3px solid gray;
     font-size: 1.5em;
     font-family: poppins, sans-serif;
@@ -21,14 +21,14 @@ form {
     transition: 0.3s;
     text-align: center;
     border-radius: 10px;
-  }
+}
   
-  form input:focus {
+form input:focus, select:focus {
     border-bottom: 3px solid #1d1917;
     outline: 0;
-  }
+}
   
-  form input[type=submit], .wine-btn {
+form input[type=submit], .wine-btn {
     background-color: gray;
     display: block;
     margin: auto;
@@ -39,10 +39,10 @@ form {
     border-radius: 15px;
     cursor: pointer;
     transition: 0.3s;
-  }
+}
   
-  form input[type=submit]:hover, .wine-btn:hover, form input[type=submit]:focus, .wine-btn:focus {
+form input[type=submit]:hover, .wine-btn:hover, form input[type=submit]:focus, .wine-btn:focus {
     outline: 0;
     background-color: #1d1917;
-  }
+}
   
