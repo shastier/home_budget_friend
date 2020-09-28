@@ -10,6 +10,7 @@ const Nav = (props) => {
                 </div>
                 <ul className="nav navbar-nav">
                 <li className="active"><a href="/">Home</a></li>
+                <li className="active"><a href="/about">About</a></li>
                 <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" href="#">My Account <span className="caret"></span></a>
                     <ul className="dropdown-menu">
                     <li><a href="/dashboard">All Expenses</a></li>

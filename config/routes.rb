@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/dashboard" => "static_pages#dashboard"
   get "/new" => "static_pages#create" # add new expense
   get "/edit" => "static_pages#update" # edit expense
+  get "/about"  => "static_pages#about"
 
   #  map SessionsController actions to /login and /logout
   post   "/login"       => "sessions#create"
