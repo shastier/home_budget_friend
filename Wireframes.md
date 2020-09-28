@@ -5,7 +5,7 @@ Right-click & open in new window to see better!
 ## Home page
 - Show welcome message. 
 - Header right side: has a link to Sign Up, Login and Log out.
-- Header left side: has a link to user's page: My Account and Home page.
+- Header left side: has a link to user's page: My Account, About and Home page.
 
 ![home](./assets/home.jpg)
 
