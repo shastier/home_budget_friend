@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const PostExpense = (props) => {
     return (
-        <div>            
+        <div className="postExpenseDiv">            
             <h4>Cost: ${props.expense.cost}</h4>
             <h4>Description: {props.expense.description}</h4>
             <h4>Date: {props.expense.date}</h4>

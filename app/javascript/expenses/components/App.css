@@ -1,6 +1,6 @@
 /* forms, from Pizza class lecture */
 
-form {
+form, .postExpenseDiv {
     width: 50vw;
     padding: 50px;
     box-sizing: border-box;
@@ -28,7 +28,7 @@ form input:focus, select:focus {
     outline: 0;
 }
   
-form input[type=submit], .wine-btn {
+form input[type=submit], .btn {
     background-color: gray;
     display: block;
     margin: auto;
@@ -40,8 +40,13 @@ form input[type=submit], .wine-btn {
     cursor: pointer;
     transition: 0.3s;
 }
+
+.btn {
+    background-color: rgb(165, 161, 161);
+    margin: 5px;
+}
   
-form input[type=submit]:hover, .wine-btn:hover, form input[type=submit]:focus, .wine-btn:focus {
+form input[type=submit]:hover, form input[type=submit]:focus, .btn:hover {
     outline: 0;
     background-color: #1d1917;
 }
