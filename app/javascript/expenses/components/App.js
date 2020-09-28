@@ -11,6 +11,7 @@ import RegisterForm from './RegisterForm';
 import Dashboard from './Dashboard';
 
 import AllExpenses from './AllExpenses';
+import About from './About';
 
 class App extends Component {
   constructor() {
@@ -136,6 +137,10 @@ class App extends Component {
             <div className="container">
                 <Route exact path='/' 
                     render={() => ( <Home /> 
+                )} />
+
+                <Route exact path='/about' 
+                    render={() => ( <About /> 
                 )} />
 
                 <Route exact path='/login' render={() => (
