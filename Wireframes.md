@@ -10,10 +10,15 @@ Right-click & open in new window to see better!
 ![home](./assets/home.jpg)
 
 ### No-Authorization require
-- Will only see "Home" and "About" pages, which will explain how to use the app and why it is needed.
+- Will only see "Home" and "About" pages.
+
+## About page
+- Will explain step by step how to use the app and why it is needed.
+
+![about](./assets/about.jpg)
 
 ### Authorization require
-- Will allow the user to register. Got to "Register" page if first time user. 
+- Will allow the user to register. Got to "Sign Up" page if first time user. 
 - If the user has already an account, allow it to login and go to its "Account" page.
 
 ## Login / Registration flow
