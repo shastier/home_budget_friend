@@ -1,0 +1,48 @@
+/* forms, from Pizza class lecture */
+
+form {
+    width: 50vw;
+    padding: 50px;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+  }
+  
+  form input {
+    border-bottom: 3px solid gray;
+    font-size: 1.5em;
+    font-family: poppins, sans-serif;
+    margin: 18px 0;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    transition: 0.3s;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  form input:focus {
+    border-bottom: 3px solid #1d1917;
+    outline: 0;
+  }
+  
+  form input[type=submit], .wine-btn {
+    background-color: gray;
+    display: block;
+    margin: auto;
+    padding: 10px 30px;
+    font-size: 1.5em;
+    color: white;
+    font-weight: 900;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  form input[type=submit]:hover, .wine-btn:hover, form input[type=submit]:focus, .wine-btn:focus {
+    outline: 0;
+    background-color: #1d1917;
+  }
+  
