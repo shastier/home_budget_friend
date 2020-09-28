@@ -1,6 +1,7 @@
 # Home Budget Friend App
 Home budgeting process is complicated, yet an important aspect of wellbeing and success. The aim of "Home Budget Friend" is to easy the home budgeting pain and make of it an enjoyable experience.
 
+![Post New Expense](./assets/add_new_expense.jpg)
 ## Wireframes and user stories
 
 Please click the link below to see wireframes and user stories.
