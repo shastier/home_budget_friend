@@ -1,73 +1,85 @@
-# Wireframes
+# Wireframes and User Stories
 
 Right-click & open in new window to see better!
 
-![wireframes](./assets/wireframes.jpg)
-
-# User Stories / http routes
-
 ## Home page
-GET: '/'
-- Show welcome message and background graphic / video related to budget planning. 
-- Header right side: has a link to home and about pages.
-- Header left side: has a link to user's page: My Account, that will allow the user to register or login.
+- Show welcome message. 
+- Header right side: has a link to Sign Up, Login and Log out.
+- Header left side: has a link to user's page: My Account and Home page.
 
-### Authorization require
-- Will allow the user to register. Got to "Register" page if first time user. 
-- If the user has already an account, allow it to login and go to its "Home" page.
+![home](./assets/home.jpg)
 
 ### No-Authorization require
 - Will only see "Home" and "About" pages, which will explain how to use the app and why it is needed.
 
+### Authorization require
+- Will allow the user to register. Got to "Register" page if first time user. 
+- If the user has already an account, allow it to login and go to its "Account" page.
 
 ## Login / Registration flow
 
 ### Registration. First time user
-POST: /user/new
 - Allow user to register.
-- Name, username and password are mandatory fields.
-- Add validation: E-mail must include '@' and password should include at least one digit.
 - Register button, will redirect to user's "Home" page.
 
+![sign_up](./assets/sign_up.jpg)
+
 ### Login. User who was previously registered. 
-GET: /auth/login
-- Allow user to enter username & password. If that information matches with the DB's user login credentials 
-then, redirect to user's "Home" page.
-- Else, show message: "Please, try again, username/password does not match." Don't allow the user to login until the correct information is entered.
-- Have a smaller link to register, in case the user doesn't have an account.
+- Allow user to enter username & password. If that information matches with the DB's user login credentials then, redirect to user's "Account" page.
+- Else, don't allow the user to login until the correct information is entered.
 
-## User "Home" page / Add new expense
-GET: /user
-- Show a dashboard with three main categories: living, wants and debt.
-- Those categories, will have a link to add expenses of that category.
-- Will include a link to "All Expenses" page.
+![login](./assets/login.jpg)
 
-## See all expenses
-GET: /expenses 
-### Will allow user to:
-- See a list of all expenses.
-- Filter expenses by category.
-- Order expenses by cost: ascending or descending.
-- Show ttal at bottom of page.
-- Edit / Delete options on the left, will only be visible if the user's select show Edit/Delete.
+## User "Account" page
+- Show all user's posted expenses.
 
-## Edit an expense
-GET: /expenses/:id/edit
-PUT: /expenses/:id
-- This page is accessible from "All expenses" page when the user clicks edit.
-- Will be pre-filled with the selected expense data. 
-- User will update the expense as needed and click submit.
-- The database will be updated accordingly. 
+![dashboard](./assets/dashboard.jpg)
 
 ## Add expenses
-POST: /expenses/:id/new
-- This page is accessible from "User Home" page when the user clicks on one of the categories.
-- Allow user to enter new expenses of the selected category.
-- User can enter more than one expense at the same time if click the '+' a new emty row will show up.
-- When done, the user will click submit button.
+- This page is accessible from the "navigation bar" My Account / Add Expense 
+- Allow user to enter new expense.
+
+![add_new_expense](./assets/add_new_expense.jpg)
+
+- Select expense type.
+
+![add_new_expense_type](./assets/add_new_expense_type.jpg)
+
+- Select expense due date.
+
+![add_new_expense_date](./assets/add_new_expense_date.jpg)
+
+- When all data is entered, the user will click "Add" button. The database will be updated accordingly. 
+
+![add_new_expense_view](./assets/add_new_expense_view.jpg)
+
+- Then, the user will click all expenses in order to be redirected to it's dashboard and see the new posted expense added and the total updated accordingly.
+
+![dashboard_added](./assets/dashboard_added.jpg)
+
+## See All Posted Expenses / Edit / Delete
+- This page is accessible from "navigation bar" My Account / "All expenses" 
+
+### Will allow user to:
+- See a list of all posted expenses.
+- Show total at bottom of page.
+- Edit / Delete options on each posted expense.
+
+![dash_more_added_total_updated](./assets/dash_more_added_total_updated.jpg)
+
+## Edit a posted expense
+- This page is accessible from "navigation bar" My Account / "All expenses" / Edit desired posted expense.
+
+- Will be pre-filled with the selected expense data. 
+- User will update the expense as needed.
+
+![edit_ispaid](./assets/edit_ispaid.jpg)
+
+- When done, the user will click Edit button.
 - The database will be updated accordingly. 
 
-## Delete an expense
-DETETE /expenses/:id
-- From "All expenses" page, the user will be able to delete an item.
-- Once deleted, that entry will be removed from the list and total amount will be updated.
+![edit](./assets/edit.jpg)
+
+## Delete a posted expense
+- This page is accessible from "navigation bar" My Account / "All expenses" / Delete desired posted expense.
+- Once the user click Delete button and refresh the page, that posted expense will be removed from the list and total amount will be updated.
