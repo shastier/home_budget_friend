@@ -8,7 +8,7 @@ Please click the link below to see wireframes and user stories.
 [Wireframes and User Stories](./Wireframes.md).
 
 ## Schema Diagram
-![Schema Diagram](./schema_diagram.md)
+![Schema Diagram](./assets/schema_diagram.jpg)
 
 ## Technologies used
 - **PostgreSQL**: As object-relational database.Versions 9.3 and up are supported.
@@ -17,7 +17,8 @@ Please click the link below to see wireframes and user stories.
 - **Heroku Deployment**: Applied continuous integration on deployment.
 
 ## Code snippet 
-- This is a many to many relationship post_expenses, that allow a user to have many expenses and an expense to be used by many users.
+- Here is how the model was implemented for: many to many relationship post_expenses, that allow a user to have many expenses and an expense to be used by many users. Which is the main funtionality of the app.
+
 - app/models/post_expense.rb
 ```ruby
 class PostExpense < ApplicationRecord
