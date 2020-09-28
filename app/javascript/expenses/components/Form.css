@@ -1,6 +1,6 @@
 /* forms, partially imported from Pizza class lecture */
 
-form, .postExpenseDiv {
+form, .postExpenseDiv, .contactInfoDiv {
     width: 50vw;
     padding: 50px;
     box-sizing: border-box;
