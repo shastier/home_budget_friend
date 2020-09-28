@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css'
 
+import './App.css'
 
 class LoginForm extends Component {
     constructor(){
