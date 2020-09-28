@@ -49,13 +49,15 @@ class ExpenseCreateForm extends Component {
                     this.state.page === "edit"
                     ? (e) => this.props.handleExpenseSubmit('PUT', e, this.state, this.props.expense.id)
                     : (e) => this.props.handleExpenseSubmit('POST', e, this.state))}>
-                
+                        
+                        <label>Type of expense:</label>
                     <select name="expense_id" onChange={this.handleChange}>
                         {this.state.expenses.map((expense) => {
                             return <option value={expense.id}>{expense.description}</option>
                         })}
                     </select>
 
+                        <label>Due date: </label>
                     <input 
                     type="date" 
                     name="date" 
@@ -63,6 +65,7 @@ class ExpenseCreateForm extends Component {
                     placeholder={this.props.edit ? this.props.expense.value.date : "Date"}
                     onChange={this.handleChange} />
 
+                        <label>Cost: </label>
                     <input
                     type="numeric"
                     name="cost"
@@ -70,6 +73,7 @@ class ExpenseCreateForm extends Component {
                     placeholder={this.props.edit ? this.props.expense.value.cost : "$ Cost"}
                     onChange={this.handleChange} />
 
+                        <label>Is it paid?</label>
                     <select name="paid" onChange={this.handleChange}>
                         <option value="false">No</option>
                         <option value="true">Yes</option>
